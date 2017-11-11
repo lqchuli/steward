@@ -14,6 +14,7 @@
         <module>datacenter</module>
         <module>service</module>
         <module>common</module>
+        <module>decoration</module>
     </modules>
 
     <properties>

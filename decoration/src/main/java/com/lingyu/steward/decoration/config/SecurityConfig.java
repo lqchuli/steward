@@ -1,10 +1,8 @@
-package com.lingyu.steward.manager.config;
+package com.lingyu.steward.decoration.config;
 
-import com.lingyu.steward.manager.config.security.StewardAuthenticationProcessingFilter;
-import com.lingyu.steward.manager.config.security.StewardAuthenticationProvider;
 import com.lingyu.steward.datacenter.common.AuthorityEnum;
-import com.lingyu.steward.service.core.role.ManagerService;
-import com.lingyu.steward.service.core.role.impl.ManagerServiceImpl;
+import com.lingyu.steward.decoration.config.security.DecorationAuthenticationProcessingFilter;
+import com.lingyu.steward.decoration.config.security.DecorationAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -72,25 +70,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Resource(name = "managerService")
+    @Resource(name = "decorationService")
     private UserDetailsService userDetailsService;
 
     /**
      * 定义一个适用于本项目的权限校验过滤器
      *
-     * @return {@link StewardAuthenticationProcessingFilter}
+     * @return {@link DecorationAuthenticationProcessingFilter}
      */
-    private StewardAuthenticationProcessingFilter stewardAuthenticationProcessingFilter() {
+    private DecorationAuthenticationProcessingFilter decorationAuthenticationProcessingFilter() {
         //权限校验提供者
 
-        StewardAuthenticationProvider authenticationProvider = new StewardAuthenticationProvider();
+        DecorationAuthenticationProvider authenticationProvider = new DecorationAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService);
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         //权限校验管理器，当然可以包含多个提供者
         AuthenticationManager authenticationManager = new ProviderManager(
                 Collections.singletonList(authenticationProvider)
         );
-        StewardAuthenticationProcessingFilter authenticationProcessingFilter = new StewardAuthenticationProcessingFilter();
+        DecorationAuthenticationProcessingFilter authenticationProcessingFilter = new DecorationAuthenticationProcessingFilter();
         authenticationProcessingFilter.setAuthenticationManager(authenticationManager);
         authenticationProcessingFilter.setAuthenticationSuccessHandler(new SimpleUrlAuthenticationSuccessHandler(LOGIN_SUCCESS_URL));
         // TODO: 10/11/2017  校验失败处理器待添加
@@ -104,7 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .headers().frameOptions().sameOrigin()
                 .and()
-                .addFilter(stewardAuthenticationProcessingFilter())
+                .addFilter(decorationAuthenticationProcessingFilter())
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()

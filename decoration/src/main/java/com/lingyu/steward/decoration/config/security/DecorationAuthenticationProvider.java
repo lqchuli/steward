@@ -1,4 +1,4 @@
-package com.lingyu.steward.manager.config.security;
+package com.lingyu.steward.decoration.config.security;
 
 import lombok.Setter;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @date 10/11/2017
  */
 @Setter
-public class StewardAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+public class DecorationAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
     private PasswordEncoder passwordEncoder;
 
     private UserDetailsService userDetailsService;

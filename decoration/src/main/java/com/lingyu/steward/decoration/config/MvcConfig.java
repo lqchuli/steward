@@ -1,4 +1,4 @@
-package com.lingyu.steward.manager.config;
+package com.lingyu.steward.decoration.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -29,8 +29,8 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.lingyu.steward.manager.controller",
-        "com.lingyu.steward.manager.config"
+        "com.lingyu.steward.decoration.controller",
+        "com.lingyu.steward.decoration.config"
 })
 @EnableWebMvc
 //@Import(DataCenterConfig.class)
