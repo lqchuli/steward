@@ -1,4 +1,4 @@
-package com.lingyu.steward.decoration.config;
+package com.lingyu.steward.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -24,16 +24,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ *
  * @author allan
- * @date 10/11/2017
+ * @date 12/11/2017
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.lingyu.steward.decoration.controller",
-        "com.lingyu.steward.decoration.config"
+        "com.lingyu.steward.web.config"
 })
 @EnableWebMvc
-//@Import(DataCenterConfig.class)
 public class MvcConfig extends WebMvcConfigurerAdapter {
     /**
      * 静态资源处理,加在这里
@@ -83,8 +82,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
      *
      * @return
      */
-    @SuppressWarnings("Duplicates")
-    public ThymeleafViewResolver htmlTemplateResolver() {
+    private ThymeleafViewResolver htmlTemplateResolver() {
         //spring模板解析器
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
@@ -107,7 +105,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine);
         // NOTE 'order' and 'viewNames' are optional
-        viewResolver.setOrder(2);
         viewResolver.setCharacterEncoding("UTF-8");
         viewResolver.setContentType("text/html;charset=utf-8");
         return viewResolver;

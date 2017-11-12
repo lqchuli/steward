@@ -1,6 +1,6 @@
-package com.lingyu.steward.manager;
+package com.lingyu.steward.decoration;
 
-import com.lingyu.steward.manager.config.ManagerConfig;
+import com.lingyu.steward.decoration.config.DecorationConfig;
 import com.lingyu.steward.service.config.ServiceConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -13,7 +13,8 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
-                ManagerConfig.class
+                DecorationConfig.class,
+                ServiceConfig.class
         };
     }
 

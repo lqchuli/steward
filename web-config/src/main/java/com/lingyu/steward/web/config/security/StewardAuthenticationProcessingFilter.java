@@ -1,4 +1,4 @@
-package com.lingyu.steward.decoration.config.security;
+package com.lingyu.steward.web.config.security;
 
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author allan
  * @date 10/11/2017
  */
-public class DecorationAuthenticationProcessingFilter extends UsernamePasswordAuthenticationFilter {
+public class StewardAuthenticationProcessingFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         if (!"POST".equals(request.getMethod())) {
