@@ -16,6 +16,7 @@
         <module>common</module>
         <module>decoration</module>
         <module>web-config</module>
+        <module>web-service</module>
     </modules>
 
     <properties>

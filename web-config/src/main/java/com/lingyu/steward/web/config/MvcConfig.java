@@ -24,13 +24,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
  * @author allan
  * @date 12/11/2017
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.lingyu.steward.web.config"
+        "com.lingyu.steward.web.config",
+        "com.lingyu.steward.common.vfs"
 })
 @EnableWebMvc
 public class MvcConfig extends WebMvcConfigurerAdapter {

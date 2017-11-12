@@ -3,7 +3,7 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-    <display-name>steward api web app</display-name>
+    <display-name>steward decoration web app</display-name>
 
     <filter>
         <filter-name>encoding</filter-name>
