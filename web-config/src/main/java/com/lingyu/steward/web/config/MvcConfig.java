@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -20,6 +21,7 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,8 +31,7 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.lingyu.steward.web.config",
-        "com.lingyu.steward.common.vfs"
+        "com.lingyu.steward.web.config"
 })
 @EnableWebMvc
 public class MvcConfig extends WebMvcConfigurerAdapter {
@@ -60,9 +61,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         }
     }
 
+    @Autowired
+    private ThymeleafViewResolver thymeleafViewResolver;
+
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.viewResolver(htmlTemplateResolver());
+        registry.viewResolver(thymeleafViewResolver);
     }
 
     /**
@@ -82,7 +86,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
      *
      * @return
      */
-    private ThymeleafViewResolver htmlTemplateResolver() {
+    @Bean
+    public ThymeleafViewResolver htmlTemplateResolver() {
         //spring模板解析器
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
