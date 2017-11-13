@@ -2,6 +2,7 @@ package com.lingyu.steward.manager.controller;
 
 import com.lingyu.steward.manager.base.WebTestBase;
 import org.junit.Test;
+import org.springframework.util.DigestUtils;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

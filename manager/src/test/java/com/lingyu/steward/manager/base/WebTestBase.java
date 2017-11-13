@@ -16,7 +16,7 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 
 
 /**
- * API测试
+ * controller测试
  * Created by allan on 29/10/2017.
  */
 @ActiveProfiles("test")

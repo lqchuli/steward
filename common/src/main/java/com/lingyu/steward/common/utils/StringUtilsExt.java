@@ -25,6 +25,7 @@ import java.util.*;
 public class StringUtilsExt {
     public static String DATE_PATTERN = "yyyy-MM-dd";
     public static String TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public static String TIME_PATTERN_WITH_NO_SEG = "yyyyMMddHHmmss";
     public static String ENCODING_UTF8 = "utf-8";
 
     public static boolean isNull(Object pobjObject) {

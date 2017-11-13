@@ -1,5 +1,7 @@
-package com.lingyu.steward.web.service.base;
+package com.lingyu.steward.api.base;
 
+import com.lingyu.steward.api.common.ApiResult;
+import com.lingyu.steward.api.common.ApiResultCodeEnum;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -8,13 +10,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author allan
- * @date 13/11/2017
+ * Api统一的异常处理
+ * Created by allan on 14/11/2017.
  */
 @Controller
 @ControllerAdvice
-public class StewardExceptionHandler {
-    private static final Log log = LogFactory.getLog(StewardExceptionHandler.class);
+public class ApiExceptionHandler {
+    private static final Log log = LogFactory.getLog(ApiExceptionHandler.class);
 
     /**
      * 所有异常统一处理
@@ -24,6 +26,6 @@ public class StewardExceptionHandler {
     public ApiResult runtimeExceptionHandler(Exception ex) {
         log.error(ex);
         log.info("exception:" + ex.getMessage());
-        return ApiResult.errorWith(ResultCodeEnum.SYSTEM_BAD_REQUEST, ex.getMessage());
+        return ApiResult.errorWith(ApiResultCodeEnum.SYSTEM_BAD_REQUEST, ex.getMessage());
     }
 }

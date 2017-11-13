@@ -1,18 +1,20 @@
-package com.lingyu.steward.web.service.base;
+package com.lingyu.steward.api.common;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author allan
- * @date 23/10/2017
+ * @date 14/11/2017
  */
-@Data
-public class ApiResult<T> {
+@Setter
+@Getter
+public class ApiResult {
     private int resultCode;
     private String resultMsg;
-    private T data;
+    private Object data;
 
-    public static ApiResult resultWith(ResultCodeEnum resultCode, Object data) {
+    public static ApiResult resultWith(ApiResultCodeEnum resultCode, Object data) {
         ApiResult apiResult = new ApiResult();
         apiResult.resultCode = resultCode.getResultCode();
         apiResult.resultMsg = resultCode.getResultMsg();
@@ -20,14 +22,14 @@ public class ApiResult<T> {
         return apiResult;
     }
 
-    public static ApiResult resultWith(ResultCodeEnum resultCode) {
+    public static ApiResult resultWith(ApiResultCodeEnum resultCode) {
         ApiResult apiResult = new ApiResult();
         apiResult.resultCode = resultCode.getResultCode();
         apiResult.resultMsg = resultCode.getResultMsg();
         return apiResult;
     }
 
-    public static ApiResult resultWith(ResultCodeEnum resultCode, String msg, Object data) {
+    public static ApiResult resultWith(ApiResultCodeEnum resultCode, String msg, Object data) {
         ApiResult apiResult = new ApiResult();
         apiResult.resultCode = resultCode.getResultCode();
         apiResult.resultMsg = msg;
@@ -35,14 +37,14 @@ public class ApiResult<T> {
         return apiResult;
     }
 
-    public static ApiResult errorWith(ResultCodeEnum resultCode) {
+    public static ApiResult errorWith(ApiResultCodeEnum resultCode) {
         ApiResult apiResult = new ApiResult();
         apiResult.resultCode = resultCode.getResultCode();
         apiResult.resultMsg = resultCode.getResultMsg();
         return apiResult;
     }
 
-    public static ApiResult errorWith(ResultCodeEnum resultCode, String msg) {
+    public static ApiResult errorWith(ApiResultCodeEnum resultCode, String msg) {
         ApiResult apiResult = new ApiResult();
         apiResult.resultCode = resultCode.getResultCode();
         apiResult.resultMsg = msg;
