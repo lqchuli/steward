@@ -3,6 +3,8 @@ package com.lingyu.steward.manager.base;
 
 import com.lingyu.steward.manager.config.WebTestConfig;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,7 +25,6 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 @WebAppConfiguration
 @Transactional
 public class WebTestBase extends AbstractWebTestBase {
-
     @Override
     protected void createMockMVC() {
         mockMvc = webAppContextSetup(context)

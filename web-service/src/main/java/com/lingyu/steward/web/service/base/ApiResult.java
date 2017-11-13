@@ -1,6 +1,6 @@
 package com.lingyu.steward.web.service.base;
 
-import lombok.Data;
+import lombok.*;
 
 /**
  * @author allan
