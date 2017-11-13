@@ -19,8 +19,7 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.lingyu.steward.api.config",
-        "com.lingyu.steward.api.controller"
+        "com.lingyu.steward.api"
 })
 @EnableWebMvc
 public class ApiWebConfig extends WebMvcConfigurerAdapter {

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Api统一的异常处理
- * Created by allan on 14/11/2017.
+ *
+ * @author allan
+ * @date 14/11/2017
  */
 @Controller
 @ControllerAdvice
