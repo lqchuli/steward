@@ -17,7 +17,9 @@ import java.net.URISyntaxException;
 
 /**
  * 本地静态资源服务
- * Created by allan on 12/11/2017.
+ *
+ * @author allan
+ * @date 12/11/2017
  */
 @Service("resourceService")
 @Profile("!container")

@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static final String LOGIN_PAGE = "/login";
     public static final String LOGIN_SUCCESS_URL = "/index";
     public static final String LOGOUT_SUCCESS_URL = "/";
+    public static final String LOGIN_FAILED_URL = "/loginFailed";
 
     private static String[] STATIC_RESOURCE_PATH = {
             "/resource/**",
@@ -64,8 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("administrator")
                 .password("lingyu123!@#")
                 .roles((String) AuthorityEnum.MANAGER_ROOT.getValue());
-
-
     }
 
     @Resource(name = "managerService")
@@ -89,8 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         StewardAuthenticationProcessingFilter authenticationProcessingFilter = new StewardAuthenticationProcessingFilter();
         authenticationProcessingFilter.setAuthenticationManager(authenticationManager);
         authenticationProcessingFilter.setAuthenticationSuccessHandler(new SimpleUrlAuthenticationSuccessHandler(LOGIN_SUCCESS_URL));
-        // TODO: 10/11/2017  校验失败处理器待添加
-        authenticationProcessingFilter.setAuthenticationFailureHandler(null);
+        authenticationProcessingFilter.setAuthenticationFailureHandler(new StewardSecurityFailureHandler(LOGIN_FAILED_URL));
 
         return authenticationProcessingFilter;
     }

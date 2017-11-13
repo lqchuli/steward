@@ -30,11 +30,11 @@ public enum AuthorityEnum implements ValueDescCommonEnum {
 
     @Override
     public Object getValue() {
-        return null;
+        return value;
     }
 
     @Override
     public Object getDesc() {
-        return null;
+        return desc;
     }
 }
