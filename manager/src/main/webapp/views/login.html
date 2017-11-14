@@ -58,5 +58,16 @@
     </div>
 </div>
 </body>
-
+<script src="http://resali.huobanplus.com/cdn/jquery/2.2.4/jquery.min.js"></script>
+<script src="../resource/hotui/js/plugins/hot/bootstrap.hot.extra-utils.js"
+        th:src="@{/resource/hotui/js/plugins/hot/bootstrap.hot.extra-utils.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var failedFlag = /*[[${failedFlag}]]*/ false;
+    var errorMsg = /*[[${errMsg}]]*/ "";
+    $(function () {
+        if (failedFlag) {
+            hot.tip.error(errorMsg);
+        }
+    })
+</script>
 </html>

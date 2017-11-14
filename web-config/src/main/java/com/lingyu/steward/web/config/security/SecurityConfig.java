@@ -30,7 +30,7 @@ import java.util.Collections;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    public static final String LOGIN_PAGE = "/login";
+    public static final String LOGIN_URL = "/login";
     public static final String LOGIN_SUCCESS_URL = "/index";
     public static final String LOGOUT_SUCCESS_URL = "/";
     public static final String LOGIN_FAILED_URL = "/loginFailed";
@@ -104,7 +104,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .formLogin()
-                .loginPage(LOGIN_PAGE)
+                .loginPage(LOGIN_URL)
+                .failureUrl(LOGIN_FAILED_URL)
 //                .failureHandler(new StewardSecurityFailureHandler(LOGIN_FAILED_URL))
                 .permitAll()
                 .and()
