@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.*;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.*;
 
 /**
@@ -16,7 +17,7 @@ import static org.springframework.security.test.web.servlet.response.SecurityMoc
 public class IndexControllerTest extends WebTestBase {
     @Test
     public void index() throws Exception {
-        mockMvc.perform(get("/index").with(user("administrator").password("lingyu123!@#")))
+        mockMvc.perform(formLogin().user("administrator").password("lingyu123!@#"))
                 .andExpect(authenticated());
     }
 }

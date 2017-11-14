@@ -1,6 +1,6 @@
 package com.lingyu.steward.datacenter.common;
 
-import com.lingyu.steward.common.ienum.ValueDescCommonEnum;
+import com.lingyu.steward.common.ienum.CodeDescCommonEnum;
 
 /**
  * 权限
@@ -8,33 +8,33 @@ import com.lingyu.steward.common.ienum.ValueDescCommonEnum;
  * @author allan
  * @date 10/11/2017
  */
-public enum AuthorityEnum implements ValueDescCommonEnum {
+public enum AuthorityEnum implements CodeDescCommonEnum {
     MANAGER_ROOT("MANAGER_ROOT", "超级管理员"),
     DECORATION("DECORATION", "装修公司");
 
-    private String value;
+    private String code;
     private String desc;
 
-    AuthorityEnum(String value, String desc) {
-        this.value = value;
+    AuthorityEnum(String code, String desc) {
+        this.code = code;
         this.desc = desc;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    @Override
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public String getDesc() {
+        return desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }
-
-    @Override
-    public Object getValue() {
-        return value;
-    }
-
-    @Override
-    public Object getDesc() {
-        return desc;
     }
 }

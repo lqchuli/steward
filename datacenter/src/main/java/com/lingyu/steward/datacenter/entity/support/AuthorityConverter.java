@@ -1,6 +1,6 @@
 package com.lingyu.steward.datacenter.entity.support;
 
-import com.lingyu.steward.common.ienum.ValueDescEnumHelper;
+import com.lingyu.steward.common.ienum.CodeDescEnumHelper;
 import com.lingyu.steward.datacenter.common.AuthorityEnum;
 import org.springframework.util.StringUtils;
 
@@ -23,7 +23,7 @@ public class AuthorityConverter implements AttributeConverter<Set<AuthorityEnum>
         String authoritiesStr = "";
         if (attribute.size() > 0) {
             for (AuthorityEnum authority : attribute) {
-                authoritiesStr += authority.getValue() + ",";
+                authoritiesStr += authority.getCode() + ",";
             }
 
             return authoritiesStr.substring(0, authoritiesStr.length() - 1);
@@ -39,7 +39,7 @@ public class AuthorityConverter implements AttributeConverter<Set<AuthorityEnum>
         }
         String[] authorityArray = dbData.split(",");
         for (String auth : authorityArray) {
-            authorities.add(ValueDescEnumHelper.getEnumTypeByValue(AuthorityEnum.class, auth));
+            authorities.add(CodeDescEnumHelper.getEnumTypeByValue(AuthorityEnum.class, auth));
         }
         return authorities;
     }

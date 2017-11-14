@@ -64,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("administrator")
                 .password("lingyu123!@#")
-                .roles((String) AuthorityEnum.MANAGER_ROOT.getValue());
+                .roles(AuthorityEnum.MANAGER_ROOT.getCode());
     }
 
     @Resource(name = "managerService")
@@ -105,6 +105,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .formLogin()
                 .loginPage(LOGIN_PAGE)
+//                .failureHandler(new StewardSecurityFailureHandler(LOGIN_FAILED_URL))
                 .permitAll()
                 .and()
                 .logout()

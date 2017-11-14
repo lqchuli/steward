@@ -50,7 +50,7 @@ public class DecorationDO implements UserDetails, Serializable {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<SimpleGrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + AuthorityEnum.DECORATION.getValue()));
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + AuthorityEnum.DECORATION.getCode()));
 
         return grantedAuthorities;
     }

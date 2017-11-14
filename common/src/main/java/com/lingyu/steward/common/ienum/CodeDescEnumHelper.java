@@ -2,18 +2,20 @@ package com.lingyu.steward.common.ienum;
 
 /**
  * 对于枚举的工具类
+ *
+ * @author allan
  */
-public class ValueDescEnumHelper {
+public class CodeDescEnumHelper {
 
     /**
      * 根据枚举值得到枚举描述
      *
      * @param cls
-     * @param value
+     * @param code
      * @return
      */
-    public static Object getEnumDescByValue(Class<? extends ValueDescCommonEnum> cls, Object value) {
-        ValueDescCommonEnum ice = getEnumTypeByValue(cls, value);
+    public static Object getEnumDescByValue(Class<? extends CodeDescCommonEnum> cls, Object code) {
+        CodeDescCommonEnum ice = getEnumTypeByValue(cls, code);
         if (ice != null) {
             return ice.getDesc();
         }
@@ -28,12 +30,12 @@ public class ValueDescEnumHelper {
      * @param <T>
      * @return
      */
-    public static <T extends ValueDescCommonEnum> T getEnumTypeByValue(Class<T> cls, Object value) {
-        if (value == null) {
+    public static <T extends CodeDescCommonEnum> T getEnumTypeByValue(Class<T> cls, Object code) {
+        if (code == null) {
             return null;
         }
         for (T item : cls.getEnumConstants()) {
-            if (item.getValue().equals(value)) {
+            if (item.getCode().equals(code)) {
                 return item;
             }
         }

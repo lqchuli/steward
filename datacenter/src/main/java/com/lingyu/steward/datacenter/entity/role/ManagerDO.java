@@ -73,7 +73,7 @@ public class ManagerDO implements UserDetails, Serializable {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<SimpleGrantedAuthority> grantedAuthorities = new HashSet<>();
         authorities.forEach(authority -> grantedAuthorities
-                .add(new SimpleGrantedAuthority("ROLE_" + authority.getValue())));
+                .add(new SimpleGrantedAuthority("ROLE_" + authority.getCode())));
         return grantedAuthorities;
     }
 
