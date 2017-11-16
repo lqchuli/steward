@@ -43,5 +43,6 @@ public class DemoControllerTest extends AppApiTestBase {
                 .param("sign", requestSign))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.resultCode").value(ApiResultCodeEnum.SIGN_ERROR.getResultCode()));
+//        注释
     }
 }
